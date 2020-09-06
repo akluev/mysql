@@ -1,0 +1,70 @@
+
+mkdir  C:\git\mysql\JoinUs
+
+pushd C:\git\mysql\JoinUs
+
+C:\git\mysql\JoinUs>npm init
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help json` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (joinus) join_us
+version: (1.0.0)
+description: some cult
+entry point: (index.js) app.js
+test command:
+git repository: akluev/mysql
+keywords:
+author:
+license: (ISC)
+About to write to C:\git\mysql\JoinUs\package.json:
+
+{
+  "name": "join_us",
+  "version": "1.0.0",
+  "description": "some cult",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akluev/mysql.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akluev/mysql/issues"
+  },
+  "homepage": "https://github.com/akluev/mysql#readme"
+}
+
+
+Is this OK? (yes) y
+
+
+C:\git\mysql\JoinUs>npm install faker mysql express --save
+
+
+npm notice created a lockfile as package-lock.json. You should commit this file.
++ faker@5.1.0
++ mysql@2.18.1
++ express@4.17.1
+added 60 packages from 49 contributors and audited 60 packages in 5.726s
+found 0 vulnerabilities
+
+echo node_modules/* >.gitignore
+
+node_modules/*
+
+
+npm install ejs --save
+
+mkdir views 
+
