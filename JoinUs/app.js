@@ -1,107 +1,87 @@
+var express = require('express');
 var mysql = require('mysql');
-var faker = require('faker');
+var bodyParser = require('body-parser');
+
+//load express
+var app = express();
+
+//register ejs
+app.set ("view engine", "ejs");
+
+// register body parser
+app.use (bodyParser.urlencoded({extended: true}) );
+
+// register static folder 
+app.use(express.static(__dirname + "/static"));
+
 
 var connection = mysql.createConnection({
   host     : 'localhost',
-  user     : 'learnwithcolt',
+  user     : 'root',
+  password : 'password',
   database : 'join_us'
 });
 
-for(var i = 0; i < 500; i++){
-  console.log("HELLO WORLD!");
-}
 
-// Execute file with:
-// node filename.js
-
-//SELECTING DATA
-// var q = 'SELECT COUNT(*) AS total FROM users ';
-// connection.query(q, function (error, results, fields) {
-//   if (error) throw error;
-//   console.log(results[0].total);
-// });
-
-// INSERTING DATA
-
-/*var q = 'INSERT INTO users (email) VALUES ("rusty_the_dog@gmail.com")';*/
-
-// connection.query(q, function (error, results, fields) {
-//   if (error) throw error;
-//   console.log(results);
-// });
-
-// INSERTING DATA TAKE 2
-// var person = {
-//     email: faker.internet.email(),
-//     created_at: faker.date.past()
-// };
-
-// var end_result = connection.query('INSERT INTO users SET ?', person, function(err, result) {
-//   if (err) throw err;
-//   console.log(result);
-//  });
- 
-// connection.end();
-
-// Mon Apr 24 2017 17:10:07 GMT+0000 (UTC)
-// "yyyy-mm-dd hh:mm:ss"
-// console.log(faker.date.past());
+connection.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
 
 
-// INSERTING LOTS OF DATA!!!!=============================
+app.get("/", function(req, res){
+ //console.log(req);
+	var q = 'select count(*) cnt from users';
+	connection.query(q,  function(err, result, fields) {
+	  if (err) {
+          res.send(`<b>Error:</b> ${err.sqlMessage} `);
+    //Looks like unhandled exception exists the process  
+	//	   throw err;
+	     return;
+	  }	   
+//	  console.log(result);
+      var cnt = result[0].cnt;
+	  console.log(`User Count ${cnt}` );
+      res.render("home", { count: cnt, count2: cnt+1});
+	});
+});
 
-var data = [];
-for(var i = 0; i < 500; i++){
-    data.push([
-        faker.internet.email(),
-        faker.date.past()
-    ]);
-}
-// console.log(data);
+//Try SQL Error
 
-// var q = 'INSERT INTO users (email, created_at) VALUES ?';
+app.get("/wrong", function(req, res){
+ //console.log(req);
+ //Try SQL Error
+	var q = 'select count(*) cnt from users1';
+	connection.query(q,  function(err, result, fields) {
+	  if (err) {
+          res.send(`<b>Error:</b> ${err.sqlMessage} `);
+    //Looks like unhandled exception exists the process  
+	//	   throw err;
+	     return;
+	  }	   
+//	  console.log(result);
+      var cnt = result[0].cnt;
+	  console.log(`User Count ${cnt}` );
+      res.render("home", { count: cnt, count2: cnt+1});
+	});
+});
 
-// connection.query(q, [data], function(err, result) {
-//   console.log(err);
-//   console.log(result);
-// });
-
-// connection.end();
-
-
-// Find Faker Docs Here: https://github.com/marak/Faker.js/
-
-// Install Faker via command line:
-// npm install faker
-
-// Require it inside of a JS file:
-var faker = require('faker');
-
-// USE IT!
-// Print a random email
-console.log(faker.internet.email());
-
-// Print a random past date
-console.log(faker.date.past());
-
-// Print a random past date
-console.log(faker.address.city());
-
-// We can define a new function
-function generateAddress(){
-  console.log(faker.address.streetAddress());
-  console.log(faker.address.city());
-  console.log(faker.address.state());
-}
-
-// And then execute that function:
-generateAddress();
+app.post("/register", function(req, res){
+ //console.log("Request", req.body);
+  var q="insert into users set ?";
+  var newuser = {email: req.body.email};
+  connection.query(q, newuser,  function(err, result, fields) {
+  if (err) {
+    console.log(`Registration Error for ${newuser.email}\n `, err);
+	res.render("register_error" , {email : req.body.email, error: err});
+	return 0;
+  }
+  res.render("register" , {email : req.body.email});
+  console.log(`Registration Success for ${newuser.email}`);
+ }); 
+})
 
 
-var q = 'SELECT CURTIME() as time, CURDATE() as date, NOW() as now';
-connection.query(q, function (error, results, fields) {
-  if (error) throw error;
-  console.log(results[0].time);
-  console.log(results[0].date);
-  console.log(results[0].now);
+app.listen(8080, function(){
+    console.log("Server running on 8080!");
 });

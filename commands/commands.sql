@@ -2,9 +2,9 @@
 
 show databases;
 
-create database <db_name>
+create database  <db_name>
 
-drop database <db_name>
+drop database [if exists ] <db_name>
 
 use  <db_name>
 
