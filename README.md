@@ -1,4 +1,4 @@
-# Leaning  MySQL  and Node.JS
+# Learning  MySQL  and Node.JS
 This repository keeps track of my leaning of MySQL database and Node.JS.
 The content is based on this Udemy course:  
 [The Ultimate MySQL Bootcamp: Go from SQL Beginner to Expert](https://www.udemy.com/course/the-ultimate-mysql-bootcamp-go-from-sql-beginner-to-expert/ "The Ultimate MySQL Bootcamp: Go from SQL Beginner to Expert")
