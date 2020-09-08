@@ -1,5 +1,5 @@
-# Leaning  MySQL 
-This repository keeps track of my leaning of MySQL database.
+# Leaning  MySQL  and Node.JS
+This repository keeps track of my leaning of MySQL database and Node.JS.
 The content is based on this Udemy course:  
 [The Ultimate MySQL Bootcamp: Go from SQL Beginner to Expert](https://www.udemy.com/course/the-ultimate-mysql-bootcamp-go-from-sql-beginner-to-expert/ "The Ultimate MySQL Bootcamp: Go from SQL Beginner to Expert")
 
@@ -7,7 +7,7 @@ and   [MySQL Reference Guide](https://dev.mysql.com/doc/refman/8.0/en "MySQL Ref
 
 ## Join US Application 
 
-Node.js application I built as  part of the course ( useful if you plan to start your own cult)
+This is a Node.js application that I built as  part of the course ( useful if you plan to start your own cult)
 I changed a lof of Javascript there, for example added **POST** handler:
 ```javascript
 app.post("/register", function(req, res){
@@ -26,14 +26,19 @@ app.post("/register", function(req, res){
 })
 
 ```
+## Other scripts under [Join Us folder](https://github.com/akluev/mysql/tree/master/JoinUs "Join Us folder") 
+
+-  Node.JS Hello World
+- Exampe of mysql package usage
+- Exanple of  faker package usage
 
 
-## Difference with Oracle  
+## Differences between MySQL and  Oracle  
 
-My notes how NySQL is different from Oracle
+My notes how MySQL is different from Oracle
 
-#*commands*  folder
-MySQL concepts  I learned :)  One concept per file, for example:
+#commands  folder
+MySQL concepts  I learned :)  One concept per file, for example, file [commands\bind_var.sql](https://github.com/akluev/mysql/blob/master/commands/bind_var.sql "commands\bind_var.sql") describes how to use bind variables: 
 
 ```sql
 /*
