@@ -28,7 +28,7 @@ select * from t1;
 
 alter table t1 modify  name varchar (30);
 
---- value too big
+-- value too big
 
 insert into t1 (name)
 values ("1234567890123456789012345678901") ;
@@ -104,12 +104,12 @@ mysql> show warnings;
 
 */
 
---- DEFAULT
+-- DEFAULT
 
 alter table t1 modify  name varchar(30) not null default 'alex';
 
 
---- Primary KEY
+-- Primary KEY
 
 alter table t1 add primary key (name);
 
@@ -138,7 +138,7 @@ INSERT INTO cats2(name, age) VALUES('Skippy', 4);
 CREATE TABLE cats 
   ( 
      cat_id INT NOT NULL AUTO_INCREMENT, 
-     name   VARCHAR(100), 
+     name   VARCHAR(100) , 
      breed  VARCHAR(100), 
      age    INT, 
      PRIMARY KEY (cat_id) 
@@ -154,18 +154,13 @@ VALUES ('Ringo', 'Tabby', 4),
        ('Jackson', 'Sphynx', 7);  
   
 
---- Column Alias 
+-- Column Alias 
 SELECT name AS 'cat name', breed AS 'kitty breed' FROM cats;
 
 SELECT name AS "cat name", breed AS "kitty breed" FROM cats;
 
 
 
---- SCRIPT
-
-source C:/git/mysql/commands/file1.sql
-
-mysql -u root -p < C:\Users\User\Desktop\filename.sql
 
 
 --- String functions
@@ -376,6 +371,25 @@ select @num_users;
 
 # sysdate() vs. now()
 
+SELECT NOW(), SLEEP(2), NOW();
+
+SELECT SYSDATE(), SLEEP(2), SYSDATE();
+
+
+-- dictionary 
+select 'a'='A' ;
+
+SELECT name, schema_id, hidden, type FROM mysql.tables;
+
+SELECT * FROM INFORMATION_SCHEMA.SCHEMATA;
+
+SELECT * FROM INFORMATION_SCHEMA.tables where table_schema = 'INFORMATION_SCHEMA';
+
+SELECT * FROM INFORMATION_SCHEMA.triggers t  where t.EVENT_OBJECT_SCHEMA = database() ; 
+
+SELECT * FROM INFORMATION_SCHEMA.COLLATIONS;
+
+-- now vs sysdate 
 SELECT NOW(), SLEEP(2), NOW();
 
 SELECT SYSDATE(), SLEEP(2), SYSDATE();

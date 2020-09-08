@@ -26,5 +26,6 @@ insert into t1 values ('d', 'd');
 START TRANSACTION;
 
 insert into t1 values ('e', 'e');
+/* the other session waits */ 
 
 rollback;
