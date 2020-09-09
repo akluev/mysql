@@ -1,7 +1,18 @@
---- start
+--- start/stop
+
+-- The best approach on Windows to start/stop the service:
+
+net start MySQL80
+net stop MySQL80
+
 
 "C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe"  "-uroot" "-p" 
 
+-- start as "NT AUTHORITY\NetworkService"
+cannot see C:/Program Files/MySQL/MySQL Server 8.0/DATA
+C:\Program Files\MySQL\MySQL Server 8.0\Data
+
+"C:\Program Files\MySQL\MySQL Server 8.0\bin\mysqld.exe" --defaults-file="C:\ProgramData\MySQL\MySQL Server 8.0\my.ini" MySQL80
 
 -- Database 
 
