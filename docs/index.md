@@ -1,3 +1,7 @@
+## Connecting MySQL with Node.JS
+
+[Working with Node.JS](https://github.com/akluev/mysql/blob/master/docs/Working%20with%20Node.js.md)
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/akluev/mysql/edit/master/docs/index.md) to maintain and preview the content for your website in Markdown files.
