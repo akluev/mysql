@@ -8,7 +8,8 @@ and   [MySQL Reference Guide](https://dev.mysql.com/doc/refman/8.0/en "MySQL Ref
 ## Join US Application 
 
 This is a Node.js application that I built as  part of the course ( useful if you plan to start your own cult)
-I changed a lof of Javascript there, for example added **POST** handler:
+I changed a lot of JavaScript there, for example added **POST** handler:
+
 ```javascript
 app.post("/register", function(req, res){
  //console.log("Request", req.body);

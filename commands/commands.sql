@@ -5,7 +5,6 @@
 net start MySQL80
 net stop MySQL80
 
-
 "C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe"  "-uroot" "-p" 
 
 -- start as "NT AUTHORITY\NetworkService"
