@@ -1,6 +1,6 @@
 ## Connecting MySQL with Node.JS
 
-[Working with Node.JS](https://github.com/akluev/mysql/blob/master/docs/Working%20with%20Node.js.md)
+[Working with Node.JS](Working%20with%20Node.js.md)
 
 ## Welcome to GitHub Pages
 
